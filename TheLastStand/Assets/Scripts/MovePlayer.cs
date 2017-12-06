@@ -37,8 +37,16 @@ public class MovePlayer : MonoBehaviour
 		moveDirection = transform.TransformDirection (moveDirection);
 		moveDirection.y -= gravity * Time.deltaTime;
 		CharacterController.Move (moveDirection * moveSpeed * Time.deltaTime);
-		transform.Rotate (turnDirection * Time.deltaTime);
-		transform.Rotate (0f, moveDirection.x, 0f);
+		//Rotate
+		//transform.Rotate(moveDirection);
+		if (Input.GetKeyDown(KeyCode.W))
+			transform.forward = new Vector3(0f, 0f, 1f);
+		else if (Input.GetKeyDown(KeyCode.S))
+			transform.forward = new Vector3(0f, 0f, -1f);
+		else if (Input.GetKeyDown(KeyCode.A))
+			transform.forward = new Vector3(1f, 0f, 0f);
+		else if (Input.GetKeyDown(KeyCode.D))
+			transform.forward = new Vector3(-1f, 0f, 0f);
 	}
 	void ProcessVerticalMovement(float v)
 	{
