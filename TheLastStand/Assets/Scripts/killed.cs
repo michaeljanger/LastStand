@@ -13,7 +13,7 @@ public class killed : MonoBehaviour {
 	void Update () {
 		
 	}
-	void OnCollisionEnter (Collision other){
+	void OnTriggerEnter(Collider other){
 		Debug.Log ("col enemy");
 		if (other.gameObject.CompareTag("PlayerTag"))
 		{
