@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class killed : MonoBehaviour {
+	public GameObject object1;
 	public GameObject object2;
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,7 @@ public class killed : MonoBehaviour {
 		if (other.gameObject.CompareTag("PlayerTag"))
 		{
 			Debug.Log ("killed enemy");
+			Instantiate(object1, transform.position, transform.rotation);
 			Instantiate(object2, transform.position, transform.rotation);
 			Destroy(gameObject);
 		}
